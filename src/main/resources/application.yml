@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: server.sentinel-dashboard
+  pid:
+    fail-on-write-error: false
+    file: ./${spring.application.name}-${server.port}.pid
+server:
+  port: 7201
+nacos:
+  server:
+    group-id: ${spring.profiles.active}-sentinel
+---
+spring:
+  profiles:
+    active: dev
+nacos:
+  server:
+    server-addr: http://172.16.68.88:8848
+#    namespace: ${spring.profiles.active}-dashboard-sentinel
+    namespace: ${spring.profiles.active}-server
+---
+spring:
+  profiles: dev2
+nacos:
+  server:
+    server-addr: http://172.16.68.253:8848
+    namespace: ${spring.profiles.active}-dashboard-sentinel
+---
+spring:
+  profiles: test
+nacos:
+  server:
+    server-addr: http://internal-test-newjtmm-nacos-alb-938829563.cn-north-1.elb.amazonaws.com.cn:8848
+    namespace: ${spring.profiles.active}-dashboard-sentinel
+---
+spring:
+  profiles: prod
+nacos:
+  server:
+    server-addr: internal-prod-newjtmm-nacos-alb-internal-930581307.cn-north-1.elb.amazonaws.com.cn:8848
+    namespace: ${spring.profiles.active}-dashboard-sentinel
