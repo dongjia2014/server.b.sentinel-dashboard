@@ -80,14 +80,14 @@ public class DegradeControllerV2 {
                 logger.info("publish degrade rules fail after rule add");
             }*/
             List<DegradeRuleEntity> rules = ruleProvider.getRules(app);
-//            if (rules != null && !rules.isEmpty()) {
-//                for (DegradeRuleEntity entity : rules) {
-//                    entity.setApp(app);
+            if (rules != null && !rules.isEmpty()) {
+                for (DegradeRuleEntity entity : rules) {
+                    entity.setApp(app);
 //                    if (entity.getClusterConfig() != null && entity.getClusterConfig().getFlowId() != null) {
 //                        entity.setId(entity.getFlowId());
 //                    }
-//                }
-//            }
+                }
+            }
             rules = repository.saveAll(rules);
             return Result.ofSuccess(rules);
         } catch (Throwable throwable) {

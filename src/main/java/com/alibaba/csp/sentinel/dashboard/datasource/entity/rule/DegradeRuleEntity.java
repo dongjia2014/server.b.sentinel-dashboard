@@ -53,8 +53,8 @@ public class DegradeRuleEntity implements RuleEntity {
         entity.setTimeWindow(rule.getTimeWindow());
         entity.setGrade(rule.getGrade());
         entity.setMinRequestAmount(rule.getMinRequestAmount());
-        entity.setSlowRatioThreshold(rule.getSlowRatioThreshold());
-        entity.setStatIntervalMs(rule.getStatIntervalMs());
+//        entity.setSlowRatioThreshold(rule.getSlowRatioThreshold());
+//        entity.setStatIntervalMs(rule.getStatIntervalMs());
         return entity;
     }
 
@@ -190,12 +190,12 @@ public class DegradeRuleEntity implements RuleEntity {
         if (minRequestAmount != null) {
             rule.setMinRequestAmount(minRequestAmount);
         }
-        if (slowRatioThreshold != null) {
+        /*if (slowRatioThreshold != null) {
             rule.setSlowRatioThreshold(slowRatioThreshold);
         }
         if (statIntervalMs != null) {
             rule.setStatIntervalMs(statIntervalMs);
-        }
+        }*/
 
         return rule;
     }
